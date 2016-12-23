@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a><span class="glyphicon glyphicon-user"></span> {{loggedUser.name}}</a></li>
+          <li><a routerLink="/logout" routerLinkActive="active"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<br>
+<div style="padding-bottom: 2%;" class="col-md-8 col-md-offset-2">
+  <ul class="nav nav-tabs">
+    <li class="active"><a routerLink="/new-todo/todo" routerLinkActive="active">Create Todo</a></li>
+    <li><a routerLink="/new-todo/category" routerLinkActive="active">Need category for Todo</a></li>
+  </ul>
+</div>
+<br>
+<div>
+  <router-outlet></router-outlet>
+</div>

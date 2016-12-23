@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <form>
+      <div class="input-group">
+        <input type="text" [(ngModel)]="newTodo" class="form-control" placeholder="Add Todo...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" id="change" *ngIf="update == true" (click)="addNewTodo()"  type="submit">Add</button>
+            <button class="btn btn-default" id="change" *ngIf="update != true" (click)="editTodo()"  type="submit">Update</button>
+          </span>
+      </div>
+      <span>{{emptyTodo}}</span>
+    </form>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">My Todos</div>
+      <ul class="list-group" *ngFor="let todo of inCompleteTodos">
+        <li class="list-group-item" *ngIf="todo">
+          <div class="row">
+            <div class="col-xs-6">
+              <p>{{todo.todo}}</p>
+            </div>
+            <div class="checkbox disabled, col-xs-1">
+              <label><input type="checkbox" (click) = "todoDone(todo['_id'])"></label>
+            </div>
+            <div class="col-xs-2">
+              <button (click)="changeBtn(todo['_id'], todo.todo)" type="button" class="btn btn-link">Edit</button>
+            </div>
+            <div class="col-xs-2">
+              <button (click)="remove(todo['_id'])" type="button" class="btn btn-danger">Remove</button>
+            </div>
+          </div>
+          <div>
+            <span class="glyphicon glyphicon-calendar"> {{createdDate}}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">Completed Todos</div>
+      <ul class="list-group" *ngFor="let todo of completedTodos">
+        <li class="list-group-item" *ngIf="todo">
+          <div class="row">
+            <div class="col-xs-8">
+              <strike>{{todo.todo}}</strike>
+            </div>
+            <div class="checkbox disabled, col-xs-2">
+              <label><input type="checkbox" checked (click) = "unDone(todo['_id'])"></label>
+            </div>
+            <div class="col-xs-2">
+              <button (click)="remove(todo['_id'])" type="button" class="btn btn-danger">Remove</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

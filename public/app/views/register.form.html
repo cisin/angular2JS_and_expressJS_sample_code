@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>REGISTRATION</h2>
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="Name">Name:</label>
+            <div class="col-sm-4">
+                <input text="text" class="form-control" placeholder="Enter Name" required [(ngModel)]="registerData.name">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-4">
+                <input text="text" class="form-control" placeholder="Enter email" required [(ngModel)]="registerData.email">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Password:</label>
+            <div class="col-sm-4">
+                <input type="password" class="form-control" placeholder="Enter password" required [(ngModel)]="registerData.password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" (click)="register()" class="btn btn-default">Signup</button>
+                <a routerLink="/login" routerLinkActive="active">Go back to login</a>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10" style="padding-top: 1em;">
+                <span>{{message}}</span>
+            </div>
+        </div>
+    </form>
+</div>
